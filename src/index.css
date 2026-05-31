@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* ===== Дизайн тілі: premium fintech, изумруд + жылы алтын ===== */
+
+:root {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+}
+
+/* Күңгірт (dark) — әдепкі */
+:root,
+[data-theme="dark"] {
+  --bg: #0d1411;
+  --bg-soft: #131d18;
+  --surface: #182420;
+  --surface-2: #1f2e28;
+  --border: #2a3a33;
+  --text: #eef3f0;
+  --text-muted: #93a69d;
+  --primary: #2fd29b;
+  --primary-strong: #19b485;
+  --on-primary: #04241a;
+  --accent: #e6b450;
+  --danger: #f4715f;
+  --shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+  --glow: 0 0 0 1px rgba(47, 210, 155, 0.12);
+}
+
+[data-theme="light"] {
+  --bg: #f5f3ec;
+  --bg-soft: #efece2;
+  --surface: #ffffff;
+  --surface-2: #faf8f2;
+  --border: #e6e1d4;
+  --text: #1a201d;
+  --text-muted: #6c7771;
+  --primary: #0f8f6b;
+  --primary-strong: #0c7657;
+  --on-primary: #ffffff;
+  --accent: #c7902c;
+  --danger: #d6492f;
+  --shadow: 0 18px 40px -24px rgba(31, 51, 43, 0.28);
+  --glow: 0 0 0 1px rgba(15, 143, 107, 0.08);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+/* Атмосфералық фон: жұмсақ изумруд жарық дақтары */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 50% at 85% 0%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 70%),
+    radial-gradient(50% 40% at 0% 100%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Карта стилі */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+/* Скроллбарды жасыру (мобильге ыңғайлы) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Кіру анимациясы */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pop {
+  animation: pop 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* Сан енгізу өрістерінде стрелкаларды жасыру */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

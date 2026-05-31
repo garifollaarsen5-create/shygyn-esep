@@ -1,0 +1,4 @@
+# Netlify баптауы — репозиторийді қосқанда автоматты жинап, жариялайды.
+[build]
+  command = "npm run build"
+  publish = "dist"
